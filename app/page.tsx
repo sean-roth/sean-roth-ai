@@ -82,9 +82,9 @@ const skills = {
     "LLMs (prompt engineering, RAG patterns, context management)",
     "Full-Stack (Python, JavaScript/TypeScript, React, Laravel, Flask, FastAPI)",
     "APIs (REST design, OAuth, webhook handling, Stripe)",
-    "Computer Vision (SAM, image segmentation, video processing)",
   ],
   growing: [
+    "Computer Vision (SAM, image segmentation, video processing)",
     "MLOps (model deployment, monitoring)",
     "Cloud Infrastructure (AWS, Azure basics)",
     "Local Inference (Ollama, edge deployment)",
