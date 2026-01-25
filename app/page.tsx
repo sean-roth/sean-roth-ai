@@ -6,17 +6,16 @@ import FitAssessment from "@/components/FitAssessment";
 const projects = [
   {
     title: "VFX Buddy",
-    tagline: "AI-powered rotoscoping for wedding videographers",
+    tagline: "AI video segmentation tool built on Meta's SAM 3",
     stack: ["Laravel/PHP", "React", "SAM 3", "RunPod", "Stripe"],
-    status: "Live",
-    url: "vfxbuddy.ai",
+    status: "Archived",
     description:
-      "Rotoscoping means hours of tedious frame-by-frame work. VFX Buddy uses Meta's SAM 3 to generate masks in minutes instead of hours. Full SaaS with Stripe subscriptions, React frontend on Vercel, Laravel API on Railway, Python GPU workers on RunPod Serverless, and Cloudflare R2 storage. Built solo, end-to-end.",
+      "Built a full SaaS with serverless GPU workers on RunPod, Stripe payments, and ran a cold outreach campaign to 28 leads. Zero responses led to market research: wedding videographers don't do rotoscoping. The actual market was saturated with well-funded competition and no moat opportunity. Made the data-driven decision to wind down rather than pivot into a losing position.",
     demonstrates: [
-      "Computer vision in production",
-      "Full-stack SaaS architecture",
-      "Serverless GPU infrastructure",
-      "Shipping complete products",
+      "Full-stack AI deployment",
+      "Go-to-market execution",
+      "Business judgment",
+      "Validate before building",
     ],
   },
   {
@@ -55,7 +54,7 @@ const projects = [
     stack: ["Claude Code", "Apollo MCP", "Firecrawl", "Gmail API"],
     status: "Running",
     description:
-      "Finding and researching prospects manually doesn't scale. This agent searches Apollo for leads matching an ICP, enriches them with web research via Firecrawl, generates personalized cold emails, and creates Gmail drafts for review. I use it daily for VFX Buddy outreach.",
+      "Finding and researching prospects manually doesn't scale. This agent searches Apollo for leads matching an ICP, enriches them with web research via Firecrawl, generates personalized cold emails, and creates Gmail drafts for review. Built to automate my own sales workflow.",
     demonstrates: [
       "MCP tool development",
       "Practical automation",
