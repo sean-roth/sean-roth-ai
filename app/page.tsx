@@ -26,7 +26,7 @@ const projects = [
     status: "Active",
     url: "github.com/sean-roth/alexandria-core",
     description:
-      "A system where knowledge compounds over time. PostgreSQL with pgvector stores embeddings, Ollama generates them locally, and everything syncs to Obsidian. 17+ books ingested so far. Built using a multi-agent workflow: Designer Claude writes specs, Engineer Claude implements, every decision documented. Discovered nomic-embed-text's effective 512-token limit through systematic debugging when search quality degraded—the docs claimed 8192. Runs on a home Ubuntu server (i7, 32GB RAM, 17TB storage), hardlined to laptop via SSH. Claude Code executes on the server while I coordinate from desktop—fully local, no API calls for embeddings.",
+      "A system where knowledge compounds over time. PostgreSQL with pgvector stores embeddings, Ollama generates them locally, and everything syncs to Obsidian. 256 books ingested so far. Built using a multi-agent workflow: Designer Claude writes specs, Engineer Claude implements, every decision documented. Discovered nomic-embed-text's effective 512-token limit through systematic debugging when search quality degraded—the docs claimed 8192. Runs on a home Ubuntu server (i7, 32GB RAM, 17TB storage), hardlined to laptop via SSH. Claude Code executes on the server while I coordinate from desktop—fully local, no API calls for embeddings.",
     demonstrates: [
       "Vector database architecture",
       "Multi-agent development workflow",
