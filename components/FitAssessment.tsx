@@ -13,10 +13,12 @@ export default function FitAssessment() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [streamingContent, setStreamingContent] = useState("");
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const messagesContainerRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (messagesContainerRef.current) {
+      messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
+    }
   };
 
   useEffect(() => {
@@ -128,7 +130,7 @@ export default function FitAssessment() {
         </button>
       </div>
 
-      <div className="p-4 max-h-[400px] overflow-y-auto">
+      <div ref={messagesContainerRef} className="p-4 max-h-[400px] overflow-y-auto">
         {messages.map((message, index) => (
           <div key={index} className="mb-4">
             {message.role === "assistant" && (
@@ -157,7 +159,6 @@ export default function FitAssessment() {
             <span>Analyzing fit...</span>
           </div>
         )}
-        <div ref={messagesEndRef} />
       </div>
     </div>
   );
