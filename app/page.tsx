@@ -106,7 +106,7 @@ export default function Home() {
             Sean Roth
           </h1>
           <p className="text-xl text-zinc-600 dark:text-zinc-400 mb-6">
-            AI Developer
+            AI Engineer
           </p>
           <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed max-w-2xl">
             I build practical AI applications — tools that ship and solve real problems,

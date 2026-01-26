@@ -13,11 +13,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sean Roth | AI Developer",
-  description: "AI developer. Chat with an AI trained on my work and experience.",
+  title: "Sean Roth | AI Engineer",
+  description: "AI engineer. Chat with an AI trained on my work and experience.",
   openGraph: {
-    title: "Sean Roth | AI Developer",
-    description: "AI developer. Chat with an AI trained on my work and experience.",
+    title: "Sean Roth | AI Engineer",
+    description: "AI engineer. Chat with an AI trained on my work and experience.",
     type: "website",
   },
 };
@@ -26,7 +26,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Sean Roth",
-  jobTitle: "AI Developer",
+  jobTitle: "AI Engineer",
   description:
     "I build practical AI applications — tools that ship and solve real problems, not research projects or demos. My path here is non-linear: screenwriting MA, 8,500+ ESL classes taught, now shipping products with computer vision and LLMs.",
   url: "https://seanroth.ai",
