@@ -10,7 +10,7 @@ const projects = [
     stack: ["Laravel/PHP", "React", "SAM 3", "RunPod", "Stripe"],
     status: "Archived",
     description:
-      "Built a full SaaS with serverless GPU workers on RunPod, Stripe payments, and ran a cold outreach campaign to 28 leads. Zero responses led to market research: wedding videographers don't do rotoscoping. The actual market was saturated with well-funded competition and no moat opportunity. Made the data-driven decision to wind down rather than pivot into a losing position.",
+      "Built a full SaaS with serverless GPU workers on RunPod and Stripe payments. Cold outreach to 28 leads got zero responses — market research revealed wedding videographers don't do rotoscoping. Made the data-driven decision to wind down. Technical approach was independently validated when KAIST/Adobe published VideoMaMa (January 2026) solving the same problem.",
     demonstrates: [
       "Full-stack AI deployment",
       "Go-to-market execution",
@@ -54,7 +54,7 @@ const projects = [
     stack: ["Claude Code", "Apollo MCP", "Firecrawl", "Gmail API"],
     status: "Running",
     description:
-      "Finding and researching prospects manually doesn't scale. This agent searches Apollo for leads matching an ICP, enriches them with web research via Firecrawl, generates personalized cold emails, and creates Gmail drafts for review. Built to automate my own sales workflow.",
+      "Finding and researching prospects manually doesn't scale. This agent searches Apollo for leads matching an ICP, enriches them with web research via Firecrawl, generates personalized cold emails, and creates Gmail drafts for review. Currently powering outreach for SOPs Nobody Reads, my training consultancy.",
     demonstrates: [
       "MCP tool development",
       "Practical automation",
