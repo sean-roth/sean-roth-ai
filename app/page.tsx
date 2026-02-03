@@ -8,14 +8,14 @@ const projects = [
     title: "VFX Buddy",
     tagline: "AI video segmentation tool built on Meta's SAM 3",
     stack: ["Laravel/PHP", "React", "SAM 3", "RunPod", "Stripe"],
-    status: "Archived",
+    status: "Shipped, Live",
     description:
-      "Built a full SaaS with serverless GPU workers on RunPod and Stripe payments. Cold outreach to 28 leads got zero responses — market research revealed wedding videographers don't do rotoscoping. Made the data-driven decision to wind down. Technical approach was independently validated when KAIST/Adobe published VideoMaMa (January 2026) solving the same problem.",
+      "A fully functional SaaS with serverless GPU workers on RunPod and Stripe payments — free trial available. Shipped a working product, discovered the target market (wedding videographers) doesn't actually do rotoscoping, pivoted focus elsewhere. The app still runs. Technical approach was independently validated when KAIST/Adobe published VideoMaMa (January 2026) solving the same problem.",
     demonstrates: [
       "Full-stack AI deployment",
       "Go-to-market execution",
       "Business judgment",
-      "Validate before building",
+      "Shipping real products",
     ],
   },
   {
@@ -57,9 +57,9 @@ const projects = [
       "Finding and researching prospects manually doesn't scale. This agent searches Apollo for leads matching an ICP, enriches them with web research via Firecrawl, generates personalized cold emails, and creates Gmail drafts for review. Currently powering outreach for SOPs Nobody Reads, my training consultancy.",
     demonstrates: [
       "MCP tool development",
+      "Understanding B2B sales workflow from the technical side",
       "Practical automation",
-      "Understanding B2B workflows",
-      "Pipeline management",
+      "Building tools that solve real business problems",
     ],
   },
   {
@@ -70,8 +70,24 @@ const projects = [
     description:
       "Most AI training focuses on 'here's how to use ChatGPT.' This course focuses on the harder problem: how do you think about AI integration? How do you identify where it helps vs. where it doesn't? How do you build workflows that actually stick?",
     demonstrates: [
+      "Customer enablement and education",
       "Technical communication for non-technical audiences",
-      "Organizational AI adoption strategy",
+      "Onboarding and training delivery",
+      "Technical evangelism",
+    ],
+  },
+  {
+    title: "SOPs Nobody Reads",
+    tagline: "Converting documentation into training that sticks",
+    stack: ["SCORM", "LMS Integration", "Instructional Design"],
+    status: "Active",
+    description:
+      "Consulting business helping companies turn their ignored documentation into interactive SCORM training modules. The problem: every company has SOPs, nobody reads them, compliance suffers. The solution: convert static docs into engaging, trackable training that integrates with existing LMS platforms.",
+    demonstrates: [
+      "Enterprise documentation pain points",
+      "B2B client relationships",
+      "Training delivery at scale",
+      "Understanding compliance workflows",
     ],
   },
 ];
