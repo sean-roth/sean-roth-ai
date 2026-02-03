@@ -7,7 +7,7 @@ interface Message {
   content: string;
 }
 
-const OPENING_MESSAGE = `Hi! I'm an AI that Sean trained on his work and experience - we built this site together. I can tell you about his projects, technical background, or help you figure out if he might be a good fit for a role you're hiring for. What would you like to know?`;
+const OPENING_MESSAGE = `Hi! I'm Claude, with access to context documents Sean wrote about his work and experience — we built this site together. I can tell you about his projects, technical background, or help you figure out if he might be a good fit for a role you're hiring for. What would you like to know?`;
 
 export default function Chat() {
   const [isStarted, setIsStarted] = useState(false);
@@ -91,7 +91,7 @@ export default function Chat() {
     return (
       <div className="flex flex-col items-center justify-center p-8 border border-zinc-200 dark:border-zinc-800 rounded-lg bg-zinc-50 dark:bg-zinc-900">
         <p className="text-zinc-600 dark:text-zinc-400 mb-4 text-center">
-          Chat with an AI trained on Sean&apos;s work and experience
+          Chat with Claude about Sean&apos;s work and experience
         </p>
         <button
           onClick={handleStart}
