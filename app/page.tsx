@@ -6,7 +6,7 @@ import FitAssessment from "@/components/FitAssessment";
 const projects = [
   {
     title: "VFX Buddy",
-    tagline: "AI video segmentation tool built on Meta's SAM 3",
+    tagline: "AI video segmentation tool built on Meta's SAM 3. Free trial available.",
     stack: ["Laravel/PHP", "React", "SAM 3", "RunPod", "Stripe"],
     status: "Shipped, Live",
     description:

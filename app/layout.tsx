@@ -14,10 +14,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Sean Roth | AI Engineer",
-  description: "AI engineer. Chat with an AI trained on my work and experience.",
+  description: "AI engineer and technical consultant. Chat with Claude about my work and experience.",
   openGraph: {
     title: "Sean Roth | AI Engineer",
-    description: "AI engineer. Chat with an AI trained on my work and experience.",
+    description: "AI engineer and technical consultant. Chat with Claude about my work and experience.",
     type: "website",
   },
 };
