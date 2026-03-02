@@ -50,16 +50,15 @@ const projects = [
   },
   {
     title: "B2B Sales Agent",
-    tagline: "Automated prospect research and outreach pipeline",
-    stack: ["Claude Code", "Apollo MCP", "Firecrawl", "Gmail API"],
+    tagline: "AI-powered prospect research and LinkedIn outreach pipeline",
+    stack: ["Claude Code", "Apollo MCP", "Firecrawl", "Prospect DB (SQLite)"],
     status: "Running",
     description:
-      "Finding and researching prospects manually doesn't scale. This agent searches Apollo for leads matching an ICP, enriches them with web research via Firecrawl, generates personalized cold emails, and creates Gmail drafts for review. Currently powering outreach for SOPs Nobody Reads, my training consultancy.",
+      "I built a full outreach system from scratch using MCP tools. Apollo searches for leads matching my ICP, enriches company data, and feeds a SQLite prospect database. When a LinkedIn connection accepts, Firecrawl scrapes their company site for intel — training pages, safety programs, tech stack gaps. I use that research to write personalized DMs that reference specifics only someone who did the homework would know. The system tracks every touchpoint and generates follow-up reports with priority queues. Currently at 112+ connections, 24% acceptance rate, 33 personalized DMs sent — all for SOPs Nobody Reads, my training consultancy.",
     demonstrates: [
-      "MCP tool development",
-      "Understanding B2B sales workflow from the technical side",
-      "Practical automation",
-      "Building tools that solve real business problems",
+      "MCP tool development (Apollo, Firecrawl, custom SQLite server)",
+      "Full-cycle B2B sales automation — not just lead gen, but enrichment, personalization, and pipeline tracking",
+      "Building tools that solve real business problems with real metrics",
     ],
   },
   {
