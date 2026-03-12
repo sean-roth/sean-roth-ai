@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sean Roth | AI Adoption Consultant</title>
+  <meta name="description" content="I help companies close the gap between buying AI tools and actually using them. Assessments, live workshops, and ongoing support for mid-market teams.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f1114;
+      --bg-raised: #181b20;
+      --bg-subtle: #1e2228;
+      --text: #e8e4df;
+      --text-dim: #9a958e;
+      --text-faint: #5e5a54;
+      --accent: #d4a454;
+      --accent-dim: rgba(212, 164, 84, 0.15);
+      --accent-glow: rgba(212, 164, 84, 0.08);
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'Instrument Sans', -apple-system, sans-serif;
+      --max-w: 720px;
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 2rem;
+      --space-lg: 4rem;
+      --space-xl: 6rem;
+      --space-2xl: 10rem;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 18px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--space-md);
+    }
+
+    section {
+      padding: var(--space-xl) 0;
+    }
+
+    h1, h2, h3 {
+      font-family: var(--serif);
+      font-weight: 400;
+      line-height: 1.15;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 6vw, 3.6rem);
+      letter-spacing: -0.01em;
+    }
+
+    h2 {
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      letter-spacing: -0.005em;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+    }
+
+    p {
+      color: var(--text-dim);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    a:hover {
+      opacity: 0.8;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      z-index: 9999;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-up {
+      animation: fadeUp 0.8s ease-out both;
+    }
+
+    .fade-up-d1 { animation-delay: 0.1s; }
+    .fade-up-d2 { animation-delay: 0.25s; }
+    .fade-up-d3 { animation-delay: 0.4s; }
+
+    .hero {
+      padding: var(--space-2xl) 0 var(--space-xl);
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: var(--space-sm);
+      display: block;
+    }
+
+    .hero h1 {
+      margin-bottom: var(--space-md);
+    }
+
+    .hero h1 em {
+      font-family: var(--serif);
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      line-height: 1.65;
+      max-width: 560px;
+      margin-bottom: var(--space-lg);
+    }
+
+    .btn {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.9rem 2.2rem;
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    .btn-primary:hover {
+      opacity: 1;
+      background: #e0b46a;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(212, 164, 84, 0.25);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid rgba(212, 164, 84, 0.3);
+    }
+
+    .btn-ghost:hover {
+      opacity: 1;
+      border-color: var(--accent);
+      background: var(--accent-dim);
+    }
+
+    .btn-group {
+      display: flex;
+      gap: var(--space-sm);
+      flex-wrap: wrap;
+    }
+
+    hr.full {
+      border: none;
+      height: 1px;
+      background: rgba(255,255,255,0.06);
+      margin: 0;
+    }
+
+    .problem {
+      background: var(--bg-raised);
+      border-top: 1px solid rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .problem h2 {
+      margin-bottom: var(--space-md);
+    }
+
+    .problem-list {
+      list-style: none;
+      margin: var(--space-md) 0;
+    }
+
+    .problem-list li {
+      padding: 0.65rem 0;
+      color: var(--text-dim);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      position: relative;
+      padding-left: 1.6rem;
+    }
+
+    .problem-list li::before {
+      content: '\2014';
+      position: absolute;
+      left: 0;
+      color: var(--text-faint);
+    }
+
+    .problem-list li:last-child {
+      border-bottom: none;
+    }
+
+    .problem-kicker {
+      font-size: 0.95rem;
+      color: var(--text);
+      margin-top: var(--space-md);
+      font-weight: 500;
+    }
+
+    .process-steps {
+      display: grid;
+      gap: var(--space-lg);
+      margin-top: var(--space-lg);
+    }
+
+    .step {
+      position: relative;
+      padding-left: 3.5rem;
+    }
+
+    .step-number {
+      position: absolute;
+      left: 0;
+      top: 0.15rem;
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .step h3 {
+      color: var(--text);
+      margin-bottom: var(--space-xs);
+    }
+
+    .step-meta {
+      font-size: 0.78rem;
+      color: var(--accent);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+      display: block;
+    }
+
+    .step p {
+      font-size: 0.95rem;
+    }
+
+    .about h2 {
+      margin-bottom: var(--space-md);
+    }
+
+    .about-body p {
+      margin-bottom: var(--space-sm);
+      font-size: 0.95rem;
+    }
+
+    .about-body p:first-of-type {
+      font-size: 1.05rem;
+      color: var(--text);
+    }
+
+    .resource {
+      background: var(--bg-raised);
+      border-top: 1px solid rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .resource-card {
+      border: 1px solid rgba(212, 164, 84, 0.15);
+      padding: var(--space-md);
+      background: var(--bg-subtle);
+    }
+
+    .resource-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: var(--space-sm);
+      display: block;
+    }
+
+    .resource-card h3 {
+      font-size: 1.4rem;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+    }
+
+    .resource-card p {
+      font-size: 0.92rem;
+      margin-bottom: var(--space-md);
+    }
+
+    .resource-meta {
+      font-size: 0.8rem;
+      color: var(--text-faint);
+      margin-top: var(--space-sm);
+    }
+
+    .cta {
+      text-align: center;
+      padding: var(--space-2xl) 0;
+    }
+
+    .cta h2 {
+      margin-bottom: var(--space-sm);
+    }
+
+    .cta p {
+      max-width: 480px;
+      margin: 0 auto var(--space-md);
+    }
+
+    .cta .btn-group {
+      justify-content: center;
+    }
+
+    .cta-email {
+      display: block;
+      margin-top: var(--space-sm);
+      font-size: 0.85rem;
+      color: var(--text-faint);
+    }
+
+    .cta-email a {
+      color: var(--text-dim);
+    }
+
+    footer {
+      padding: var(--space-md) 0;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    .footer-left {
+      font-size: 0.78rem;
+      color: var(--text-faint);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: var(--space-md);
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 0.78rem;
+      color: var(--text-faint);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--text-dim);
+      opacity: 1;
+    }
+
+    @media (max-width: 600px) {
+      html { font-size: 16px; }
+      .hero { padding-top: var(--space-xl); }
+      section { padding: var(--space-lg) 0; }
+      .btn-group { flex-direction: column; }
+      .btn { text-align: center; }
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="container">
+      <span class="hero-label fade-up">Sean Roth</span>
+      <h1 class="fade-up fade-up-d1">Your team has AI tools.<br><em>And they&rsquo;re lost.</em></h1>
+      <p class="hero-sub fade-up fade-up-d2">I work hands-on with your team to turn AI from an expensive experiment into the way your company actually operates.</p>
+      <div class="btn-group fade-up fade-up-d3">
+        <a href="#contact" class="btn btn-primary">Book a conversation</a>
+        <a href="#how" class="btn btn-ghost">How it works</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="full">
+
+  <section class="problem">
+    <div class="container">
+      <h2>The real cost of bad AI adoption</h2>
+      <ul class="problem-list">
+        <li>Your team tried it for a week, decided it &ldquo;wasn&rsquo;t useful,&rdquo; and went back to doing everything manually.</li>
+        <li>The people who could benefit most &mdash; operations, compliance, project leads &mdash; aren&rsquo;t touching it.</li>
+        <li>New hires are getting onboarded the slow way while the tools that could cut ramp time in half sit idle.</li>
+        <li>Meanwhile, your competitors&rsquo; teams are shipping faster, writing better, and automating the grunt work yours still does by hand.</li>
+        <li>Renewal is coming. Leadership wants to see ROI. You don&rsquo;t have a number to show them.</li>
+      </ul>
+      <p class="problem-kicker">The technology works. The adoption didn&rsquo;t. That&rsquo;s not an IT problem &mdash; it&rsquo;s a people problem. And it&rsquo;s fixable.</p>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="container">
+      <h2>How it works</h2>
+      <div class="process-steps">
+        <div class="step">
+          <span class="step-number">1</span>
+          <span class="step-meta">Assessment &middot; 1&ndash;2 weeks</span>
+          <h3>Find the gaps</h3>
+          <p>I interview your key people, observe how AI is actually being used (or not), and deliver a clear report: where you&rsquo;re leaving value on the table, and a 90-day plan to close the gap.</p>
+        </div>
+        <div class="step">
+          <span class="step-number">2</span>
+          <span class="step-meta">Live Workshops &middot; 2&ndash;6 weeks</span>
+          <h3>Train on real work</h3>
+          <p>Hands-on sessions with your actual teams on their actual tasks. Not a generic &ldquo;intro to AI&rdquo; &mdash; I work with your operations lead, your compliance person, your project managers on the things they do every day.</p>
+        </div>
+        <div class="step">
+          <span class="step-number">3</span>
+          <span class="step-meta">Ongoing support</span>
+          <h3>Make it stick</h3>
+          <p>Custom training materials, monthly office hours, and new-hire AI onboarding. The tools evolve fast &mdash; your team stays current without starting over.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="full">
+
+  <section class="about">
+    <div class="container">
+      <h2>Why me</h2>
+      <div class="about-body">
+        <p>AI adoption is a behavior change problem, not a technology problem. Tools don&rsquo;t transform companies &mdash; people using tools differently do. That belief shapes everything about how this practice works.</p>
+        <p>It also means the person working with your team should understand the technology at a deep level &mdash; not just how to prompt it, but how it actually works, where it breaks, and what it can&rsquo;t do. A SaaS product shipped on Meta&rsquo;s SAM 3. A multi-agent outreach system running on Claude with a custom SQLite backend and automated enrichment. A personal RAG library built from scratch. This isn&rsquo;t theory &mdash; it&rsquo;s daily practice.</p>
+        <p>And the person working with your team should know how to teach. 8,500+ hours of live instruction &mdash; engineers, finance professionals, students, government employees across different countries, every proficiency level. The kind of experience where you learn to read a room, adjust on the fly, and meet people exactly where they are.</p>
+        <p>Most AI consultants are either engineers who can&rsquo;t teach, or trainers who don&rsquo;t understand the technology. The gap between those two is where adoption fails &mdash; and where this practice lives.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="full">
+
+  <section class="resource">
+    <div class="container">
+      <div class="resource-card">
+        <span class="resource-label">Free resource</span>
+        <h3>AI Onboarding: A Course for Humans</h3>
+        <p>Six modules covering what AI actually is, why the usual approaches fail, and how to build productive workflows with these tools. Built for the non-technical person who&rsquo;s been told to &ldquo;start using AI.&rdquo;</p>
+        <a href="https://sean-roth.github.io/sops-nobody-reads/courses/ai-onboarding/builds/index.html" class="btn btn-ghost" target="_blank" rel="noopener">View the course</a>
+        <p class="resource-meta">Self-paced &middot; 6 modules &middot; Currently in beta &mdash; content may evolve based on feedback</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="contact">
+    <div class="container">
+      <h2>Let&rsquo;s talk</h2>
+      <p>20 minutes. No pitch deck. Just a conversation about where AI adoption is stalling at your company and whether I can help.</p>
+      <div class="btn-group">
+        <a href="mailto:sean@seanroth.ai?subject=AI%20Adoption%20Conversation" class="btn btn-primary">Start a conversation</a>
+      </div>
+      <span class="cta-email">or email directly: <a href="mailto:sean@seanroth.ai">sean@seanroth.ai</a></span>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">
+          Sean Roth &middot; Denver, CO &middot; &copy; 2026
+        </div>
+        <ul class="footer-links">
+          <li><a href="https://www.linkedin.com/in/seanrothai" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://github.com/sean-roth" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const scrollObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          scrollObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.problem-list li, .step, .resource-card').forEach((el, i) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = `opacity 0.6s ease ${i * 0.06}s, transform 0.6s ease ${i * 0.06}s`;
+      scrollObserver.observe(el);
+    });
+  </script>
+
+</body>
+</html>
