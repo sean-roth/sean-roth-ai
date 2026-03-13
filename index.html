@@ -370,13 +370,74 @@
       margin-bottom: var(--space-sm);
     }
 
-    .cta p {
+    .cta > .container > p {
       max-width: 480px;
-      margin: 0 auto var(--space-md);
+      margin: 0 auto var(--space-lg);
     }
 
-    .cta .btn-group {
-      justify-content: center;
+    .contact-form {
+      max-width: 420px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .form-row input {
+      flex: 1;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 0.8rem 1rem;
+      background: var(--bg-raised);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 0.88rem;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--accent);
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: var(--text-faint);
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .contact-form button {
+      padding: 0.9rem 2.2rem;
+      background: var(--accent);
+      color: var(--bg);
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .contact-form button:hover {
+      background: #e0b46a;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(212, 164, 84, 0.25);
     }
 
     .cta-email {
@@ -432,6 +493,7 @@
       section { padding: var(--space-lg) 0; }
       .btn-group { flex-direction: column; }
       .btn { text-align: center; }
+      .form-row { flex-direction: column; }
       .footer-inner { flex-direction: column; text-align: center; }
     }
   </style>
@@ -524,8 +586,14 @@
     <div class="container">
       <h2>Let&rsquo;s talk</h2>
       <p>20 minutes. No pitch deck. Just a conversation about where AI adoption is stalling at your company and whether I can help.</p>
-      <div class="btn-group">
-        <a href="mailto:sean@seanroth.ai?subject=AI%20Adoption%20Conversation" class="btn btn-primary">Start a conversation</a>
+      <div class="contact-form" id="contact-form">
+        <div class="form-row">
+          <input type="text" name="name" placeholder="Name" required id="form-name">
+          <input type="email" name="email" placeholder="Email" required id="form-email">
+        </div>
+        <input type="text" name="company" placeholder="Company (optional)" id="form-company">
+        <textarea name="message" placeholder="What's on your mind?" id="form-message"></textarea>
+        <button type="button" id="form-submit">Start a conversation</button>
       </div>
       <span class="cta-email">or email directly: <a href="mailto:sean@seanroth.ai">sean@seanroth.ai</a></span>
     </div>
@@ -546,6 +614,7 @@
   </footer>
 
   <script>
+    // Scroll reveal
     const scrollObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -561,6 +630,58 @@
       el.style.transform = 'translateY(20px)';
       el.style.transition = `opacity 0.6s ease ${i * 0.06}s, transform 0.6s ease ${i * 0.06}s`;
       scrollObserver.observe(el);
+    });
+
+    // Contact form via Formspree
+    document.getElementById('form-submit').addEventListener('click', async function() {
+      const btn = this;
+      const name = document.getElementById('form-name').value.trim();
+      const email = document.getElementById('form-email').value.trim();
+      const company = document.getElementById('form-company').value.trim();
+      const message = document.getElementById('form-message').value.trim();
+
+      if (!name || !email) {
+        btn.textContent = 'Name and email required';
+        setTimeout(() => { btn.textContent = 'Start a conversation'; }, 2000);
+        return;
+      }
+
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch('https://formspree.io/f/xnjbowwy', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            company: company,
+            message: message || 'Interested in a conversation about AI adoption.',
+            _subject: 'seanroth.ai — ' + name + (company ? ' (' + company + ')' : '')
+          })
+        });
+
+        if (res.ok) {
+          btn.textContent = 'Sent — I\'ll be in touch';
+          btn.style.background = '#4a6b4a';
+          document.getElementById('form-name').value = '';
+          document.getElementById('form-email').value = '';
+          document.getElementById('form-company').value = '';
+          document.getElementById('form-message').value = '';
+        } else {
+          throw new Error('Form submission failed');
+        }
+      } catch (e) {
+        btn.textContent = 'Something went wrong — try email';
+        btn.style.background = '#8b3a3a';
+      }
+
+      setTimeout(() => {
+        btn.textContent = 'Start a conversation';
+        btn.style.background = '';
+        btn.disabled = false;
+      }, 4000);
     });
   </script>
 
