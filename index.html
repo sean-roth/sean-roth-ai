@@ -29,464 +29,80 @@
       --space-xl: 6rem;
       --space-2xl: 10rem;
     }
-
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      font-size: 18px;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: var(--sans);
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-      font-weight: 400;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-
-    ::selection {
-      background: var(--accent);
-      color: var(--bg);
-    }
-
-    .container {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 0 var(--space-md);
-    }
-
-    section {
-      padding: var(--space-xl) 0;
-    }
-
-    h1, h2, h3 {
-      font-family: var(--serif);
-      font-weight: 400;
-      line-height: 1.15;
-    }
-
-    h1 {
-      font-size: clamp(2.4rem, 6vw, 3.6rem);
-      letter-spacing: -0.01em;
-    }
-
-    h2 {
-      font-size: clamp(1.6rem, 4vw, 2.2rem);
-      letter-spacing: -0.005em;
-    }
-
-    h3 {
-      font-size: 1.2rem;
-    }
-
-    p {
-      color: var(--text-dim);
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-      transition: opacity 0.2s;
-    }
-
-    a:hover {
-      opacity: 0.8;
-    }
-
-    body::after {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      opacity: 0.025;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      z-index: 9999;
-    }
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .fade-up {
-      animation: fadeUp 0.8s ease-out both;
-    }
-
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { font-size: 18px; scroll-behavior: smooth; }
+    body { font-family: var(--sans); background: var(--bg); color: var(--text); line-height: 1.7; font-weight: 400; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    ::selection { background: var(--accent); color: var(--bg); }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--space-md); }
+    section { padding: var(--space-xl) 0; }
+    h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.15; }
+    h1 { font-size: clamp(2.4rem, 6vw, 3.6rem); letter-spacing: -0.01em; }
+    h2 { font-size: clamp(1.6rem, 4vw, 2.2rem); letter-spacing: -0.005em; }
+    h3 { font-size: 1.2rem; }
+    p { color: var(--text-dim); }
+    a { color: var(--accent); text-decoration: none; transition: opacity 0.2s; }
+    a:hover { opacity: 0.8; }
+    body::after { content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0.025; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); z-index: 9999; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-up { animation: fadeUp 0.8s ease-out both; }
     .fade-up-d1 { animation-delay: 0.1s; }
     .fade-up-d2 { animation-delay: 0.25s; }
     .fade-up-d3 { animation-delay: 0.4s; }
-
-    .hero {
-      padding: var(--space-2xl) 0 var(--space-xl);
-      position: relative;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .hero-label {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: var(--space-sm);
-      display: block;
-    }
-
-    .hero h1 {
-      margin-bottom: var(--space-md);
-    }
-
-    .hero h1 em {
-      font-family: var(--serif);
-      font-style: italic;
-      color: var(--accent);
-    }
-
-    .hero-sub {
-      font-size: 1.1rem;
-      line-height: 1.65;
-      max-width: 560px;
-      margin-bottom: var(--space-lg);
-    }
-
-    .btn {
-      display: inline-block;
-      font-family: var(--sans);
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 0.9rem 2.2rem;
-      border: none;
-      cursor: pointer;
-      transition: all 0.25s ease;
-      text-decoration: none;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: var(--bg);
-    }
-
-    .btn-primary:hover {
-      opacity: 1;
-      background: #e0b46a;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 20px rgba(212, 164, 84, 0.25);
-    }
-
-    .btn-ghost {
-      background: transparent;
-      color: var(--accent);
-      border: 1px solid rgba(212, 164, 84, 0.3);
-    }
-
-    .btn-ghost:hover {
-      opacity: 1;
-      border-color: var(--accent);
-      background: var(--accent-dim);
-    }
-
-    .btn-group {
-      display: flex;
-      gap: var(--space-sm);
-      flex-wrap: wrap;
-    }
-
-    hr.full {
-      border: none;
-      height: 1px;
-      background: rgba(255,255,255,0.06);
-      margin: 0;
-    }
-
-    .problem {
-      background: var(--bg-raised);
-      border-top: 1px solid rgba(255,255,255,0.04);
-      border-bottom: 1px solid rgba(255,255,255,0.04);
-    }
-
-    .problem h2 {
-      margin-bottom: var(--space-md);
-    }
-
-    .problem-list {
-      list-style: none;
-      margin: var(--space-md) 0;
-    }
-
-    .problem-list li {
-      padding: 0.65rem 0;
-      color: var(--text-dim);
-      border-bottom: 1px solid rgba(255,255,255,0.04);
-      position: relative;
-      padding-left: 1.6rem;
-    }
-
-    .problem-list li::before {
-      content: '\2014';
-      position: absolute;
-      left: 0;
-      color: var(--text-faint);
-    }
-
-    .problem-list li:last-child {
-      border-bottom: none;
-    }
-
-    .problem-kicker {
-      font-size: 0.95rem;
-      color: var(--text);
-      margin-top: var(--space-md);
-      font-weight: 500;
-    }
-
-    .process-steps {
-      display: grid;
-      gap: var(--space-lg);
-      margin-top: var(--space-lg);
-    }
-
-    .step {
-      position: relative;
-      padding-left: 3.5rem;
-    }
-
-    .step-number {
-      position: absolute;
-      left: 0;
-      top: 0.15rem;
-      font-family: var(--serif);
-      font-size: 1.8rem;
-      color: var(--accent);
-      line-height: 1;
-    }
-
-    .step h3 {
-      color: var(--text);
-      margin-bottom: var(--space-xs);
-    }
-
-    .step-meta {
-      font-size: 0.78rem;
-      color: var(--accent);
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      margin-bottom: 0.6rem;
-      display: block;
-    }
-
-    .step p {
-      font-size: 0.95rem;
-    }
-
-    .about h2 {
-      margin-bottom: var(--space-md);
-    }
-
-    .about-body p {
-      margin-bottom: var(--space-sm);
-      font-size: 0.95rem;
-    }
-
-    .about-body p:first-of-type {
-      font-size: 1.05rem;
-      color: var(--text);
-    }
-
-    .resource {
-      background: var(--bg-raised);
-      border-top: 1px solid rgba(255,255,255,0.04);
-      border-bottom: 1px solid rgba(255,255,255,0.04);
-    }
-
-    .resource-card {
-      border: 1px solid rgba(212, 164, 84, 0.15);
-      padding: var(--space-md);
-      background: var(--bg-subtle);
-    }
-
-    .resource-label {
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: var(--space-sm);
-      display: block;
-    }
-
-    .resource-card h3 {
-      font-size: 1.4rem;
-      color: var(--text);
-      margin-bottom: 0.6rem;
-    }
-
-    .resource-card p {
-      font-size: 0.92rem;
-      margin-bottom: var(--space-md);
-    }
-
-    .resource-meta {
-      font-size: 0.8rem;
-      color: var(--text-faint);
-      margin-top: var(--space-sm);
-    }
-
-    .cta {
-      text-align: center;
-      padding: var(--space-2xl) 0;
-    }
-
-    .cta h2 {
-      margin-bottom: var(--space-sm);
-    }
-
-    .cta > .container > p {
-      max-width: 480px;
-      margin: 0 auto var(--space-lg);
-    }
-
-    .contact-form {
-      max-width: 420px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    .form-row {
-      display: flex;
-      gap: 0.75rem;
-    }
-
-    .form-row input {
-      flex: 1;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-      padding: 0.8rem 1rem;
-      background: var(--bg-raised);
-      border: 1px solid rgba(255,255,255,0.1);
-      color: var(--text);
-      font-family: var(--sans);
-      font-size: 0.88rem;
-      outline: none;
-      transition: border-color 0.2s;
-      width: 100%;
-    }
-
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-      border-color: var(--accent);
-    }
-
-    .contact-form input::placeholder,
-    .contact-form textarea::placeholder {
-      color: var(--text-faint);
-    }
-
-    .contact-form textarea {
-      resize: vertical;
-      min-height: 80px;
-    }
-
-    .contact-form button {
-      padding: 0.9rem 2.2rem;
-      background: var(--accent);
-      color: var(--bg);
-      font-family: var(--sans);
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      border: none;
-      cursor: pointer;
-      transition: all 0.25s ease;
-    }
-
-    .contact-form button:hover {
-      background: #e0b46a;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 20px rgba(212, 164, 84, 0.25);
-    }
-
-    .cta-email {
-      display: block;
-      margin-top: var(--space-sm);
-      font-size: 0.85rem;
-      color: var(--text-faint);
-    }
-
-    .cta-email a {
-      color: var(--text-dim);
-    }
-
-    footer {
-      padding: var(--space-md) 0;
-      border-top: 1px solid rgba(255,255,255,0.04);
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: var(--space-sm);
-    }
-
-    .footer-left {
-      font-size: 0.78rem;
-      color: var(--text-faint);
-    }
-
-    .footer-links {
-      display: flex;
-      gap: var(--space-md);
-      list-style: none;
-    }
-
-    .footer-links a {
-      font-size: 0.78rem;
-      color: var(--text-faint);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .footer-links a:hover {
-      color: var(--text-dim);
-      opacity: 1;
-    }
-
+    .hero { padding: var(--space-2xl) 0 var(--space-xl); position: relative; }
+    .hero::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 600px; height: 600px; background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%); pointer-events: none; }
+    .hero-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: var(--space-sm); display: block; }
+    .hero h1 { margin-bottom: var(--space-md); }
+    .hero h1 em { font-family: var(--serif); font-style: italic; color: var(--accent); }
+    .hero-sub { font-size: 1.1rem; line-height: 1.65; max-width: 560px; margin-bottom: var(--space-lg); }
+    .btn { display: inline-block; font-family: var(--sans); font-size: 0.85rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.9rem 2.2rem; border: none; cursor: pointer; transition: all 0.25s ease; text-decoration: none; }
+    .btn-primary { background: var(--accent); color: var(--bg); }
+    .btn-primary:hover { opacity: 1; background: #e0b46a; transform: translateY(-1px); box-shadow: 0 4px 20px rgba(212, 164, 84, 0.25); }
+    .btn-ghost { background: transparent; color: var(--accent); border: 1px solid rgba(212, 164, 84, 0.3); }
+    .btn-ghost:hover { opacity: 1; border-color: var(--accent); background: var(--accent-dim); }
+    .btn-group { display: flex; gap: var(--space-sm); flex-wrap: wrap; }
+    hr.full { border: none; height: 1px; background: rgba(255,255,255,0.06); margin: 0; }
+    .problem { background: var(--bg-raised); border-top: 1px solid rgba(255,255,255,0.04); border-bottom: 1px solid rgba(255,255,255,0.04); }
+    .problem h2 { margin-bottom: var(--space-md); }
+    .problem-list { list-style: none; margin: var(--space-md) 0; }
+    .problem-list li { padding: 0.65rem 0; color: var(--text-dim); border-bottom: 1px solid rgba(255,255,255,0.04); position: relative; padding-left: 1.6rem; }
+    .problem-list li::before { content: '\2014'; position: absolute; left: 0; color: var(--text-faint); }
+    .problem-list li:last-child { border-bottom: none; }
+    .problem-kicker { font-size: 0.95rem; color: var(--text); margin-top: var(--space-md); font-weight: 500; }
+    .process-steps { display: grid; gap: var(--space-lg); margin-top: var(--space-lg); }
+    .step { position: relative; padding-left: 3.5rem; }
+    .step-number { position: absolute; left: 0; top: 0.15rem; font-family: var(--serif); font-size: 1.8rem; color: var(--accent); line-height: 1; }
+    .step h3 { color: var(--text); margin-bottom: var(--space-xs); }
+    .step-meta { font-size: 0.78rem; color: var(--accent); font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.6rem; display: block; }
+    .step p { font-size: 0.95rem; }
+    .about h2 { margin-bottom: var(--space-md); }
+    .about-body p { margin-bottom: var(--space-sm); font-size: 0.95rem; }
+    .about-body p:first-of-type { font-size: 1.05rem; color: var(--text); }
+    .resource { background: var(--bg-raised); border-top: 1px solid rgba(255,255,255,0.04); border-bottom: 1px solid rgba(255,255,255,0.04); }
+    .resource-card { border: 1px solid rgba(212, 164, 84, 0.15); padding: var(--space-md); background: var(--bg-subtle); }
+    .resource-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: var(--space-sm); display: block; }
+    .resource-card h3 { font-size: 1.4rem; color: var(--text); margin-bottom: 0.6rem; }
+    .resource-card p { font-size: 0.92rem; margin-bottom: var(--space-md); }
+    .resource-meta { font-size: 0.8rem; color: var(--text-faint); margin-top: var(--space-sm); }
+    .cta { text-align: center; padding: var(--space-2xl) 0; }
+    .cta h2 { margin-bottom: var(--space-sm); }
+    .cta > .container > p { max-width: 480px; margin: 0 auto var(--space-lg); }
+    .contact-form { max-width: 420px; margin: 0 auto; display: flex; flex-direction: column; gap: 0.75rem; }
+    .form-row { display: flex; gap: 0.75rem; }
+    .form-row input { flex: 1; }
+    .contact-form input, .contact-form textarea { padding: 0.8rem 1rem; background: var(--bg-raised); border: 1px solid rgba(255,255,255,0.1); color: var(--text); font-family: var(--sans); font-size: 0.88rem; outline: none; transition: border-color 0.2s; width: 100%; }
+    .contact-form input:focus, .contact-form textarea:focus { border-color: var(--accent); }
+    .contact-form input::placeholder, .contact-form textarea::placeholder { color: var(--text-faint); }
+    .contact-form textarea { resize: vertical; min-height: 80px; }
+    .contact-form button { padding: 0.9rem 2.2rem; background: var(--accent); color: var(--bg); font-family: var(--sans); font-size: 0.85rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; border: none; cursor: pointer; transition: all 0.25s ease; }
+    .contact-form button:hover { background: #e0b46a; transform: translateY(-1px); box-shadow: 0 4px 20px rgba(212, 164, 84, 0.25); }
+    .cta-email { display: block; margin-top: var(--space-sm); font-size: 0.85rem; color: var(--text-faint); }
+    .cta-email a { color: var(--text-dim); }
+    footer { padding: var(--space-md) 0; border-top: 1px solid rgba(255,255,255,0.04); }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-sm); }
+    .footer-left { font-size: 0.78rem; color: var(--text-faint); }
+    .footer-links { display: flex; gap: var(--space-md); list-style: none; }
+    .footer-links a { font-size: 0.78rem; color: var(--text-faint); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text-dim); opacity: 1; }
     @media (max-width: 600px) {
       html { font-size: 16px; }
       .hero { padding-top: var(--space-xl); }
@@ -586,15 +202,15 @@
     <div class="container">
       <h2>Let&rsquo;s talk</h2>
       <p>20 minutes. No pitch deck. Just a conversation about where AI adoption is stalling at your company and whether I can help.</p>
-      <div class="contact-form" id="contact-form">
+      <form class="contact-form" action="https://formspree.io/f/xnjbowwy" method="POST">
         <div class="form-row">
-          <input type="text" name="name" placeholder="Name" required id="form-name">
-          <input type="email" name="email" placeholder="Email" required id="form-email">
+          <input type="text" name="name" placeholder="Name" required>
+          <input type="email" name="email" placeholder="Email" required>
         </div>
-        <input type="text" name="company" placeholder="Company (optional)" id="form-company">
-        <textarea name="message" placeholder="What's on your mind?" id="form-message"></textarea>
-        <button type="button" id="form-submit">Start a conversation</button>
-      </div>
+        <input type="text" name="company" placeholder="Company (optional)">
+        <textarea name="message" placeholder="What's on your mind?"></textarea>
+        <button type="submit">Start a conversation</button>
+      </form>
       <span class="cta-email">or email directly: <a href="mailto:sean@seanroth.ai">sean@seanroth.ai</a></span>
     </div>
   </section>
@@ -614,7 +230,6 @@
   </footer>
 
   <script>
-    // Scroll reveal
     const scrollObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -624,64 +239,11 @@
         }
       });
     }, { threshold: 0.12 });
-
     document.querySelectorAll('.problem-list li, .step, .resource-card').forEach((el, i) => {
       el.style.opacity = '0';
       el.style.transform = 'translateY(20px)';
       el.style.transition = `opacity 0.6s ease ${i * 0.06}s, transform 0.6s ease ${i * 0.06}s`;
       scrollObserver.observe(el);
-    });
-
-    // Contact form via Formspree
-    document.getElementById('form-submit').addEventListener('click', async function() {
-      const btn = this;
-      const name = document.getElementById('form-name').value.trim();
-      const email = document.getElementById('form-email').value.trim();
-      const company = document.getElementById('form-company').value.trim();
-      const message = document.getElementById('form-message').value.trim();
-
-      if (!name || !email) {
-        btn.textContent = 'Name and email required';
-        setTimeout(() => { btn.textContent = 'Start a conversation'; }, 2000);
-        return;
-      }
-
-      btn.textContent = 'Sending...';
-      btn.disabled = true;
-
-      try {
-        const res = await fetch('https://formspree.io/f/xnjbowwy', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            name: name,
-            email: email,
-            company: company,
-            message: message || 'Interested in a conversation about AI adoption.',
-            _subject: 'seanroth.ai — ' + name + (company ? ' (' + company + ')' : '')
-          })
-        });
-
-        if (res.ok) {
-          btn.textContent = 'Sent — I\'ll be in touch';
-          btn.style.background = '#4a6b4a';
-          document.getElementById('form-name').value = '';
-          document.getElementById('form-email').value = '';
-          document.getElementById('form-company').value = '';
-          document.getElementById('form-message').value = '';
-        } else {
-          throw new Error('Form submission failed');
-        }
-      } catch (e) {
-        btn.textContent = 'Something went wrong — try email';
-        btn.style.background = '#8b3a3a';
-      }
-
-      setTimeout(() => {
-        btn.textContent = 'Start a conversation';
-        btn.style.background = '';
-        btn.disabled = false;
-      }, 4000);
     });
   </script>
 
