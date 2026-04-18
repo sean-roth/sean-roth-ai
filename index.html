@@ -59,14 +59,12 @@
             transition: background 0.3s ease, color 0.3s ease;
         }
 
-        /* ---- Layout ---- */
         .container {
             max-width: 820px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
-        /* ---- Header ---- */
         header {
             padding: 5rem 0 3rem;
         }
@@ -86,7 +84,6 @@
             margin-bottom: 1.5rem;
         }
 
-        /* ---- Theme Toggle ---- */
         .theme-toggle {
             position: relative;
             width: 44px;
@@ -169,7 +166,6 @@
             color: var(--rule);
         }
 
-        /* ---- Sections ---- */
         .divider {
             border: none;
             border-top: 1px solid var(--rule);
@@ -188,7 +184,6 @@
             transition: color 0.3s ease;
         }
 
-        /* ---- Project Cards ---- */
         .project {
             margin-bottom: 2.5rem;
         }
@@ -253,7 +248,6 @@
             content: '→ ';
         }
 
-        /* ---- Implementations list ---- */
         .implementations {
             margin-top: 0.75rem;
             font-size: 0.88rem;
@@ -269,7 +263,6 @@
             transition: color 0.3s ease;
         }
 
-        /* ---- Background Section ---- */
         .background {
             color: var(--text-secondary);
             font-size: 0.95rem;
@@ -286,7 +279,6 @@
             margin-bottom: 0;
         }
 
-        /* ---- Footer ---- */
         footer {
             padding: 3rem 0;
             margin-top: 1rem;
@@ -298,7 +290,6 @@
             transition: color 0.3s ease;
         }
 
-        /* ---- Responsive ---- */
         @media (max-width: 600px) {
             html {
                 font-size: 16px;
@@ -339,7 +330,7 @@
             The consulting version of my last company taught me that I'd rather be building systems 
             than running sales motions. I'm looking for AI implementation, applied AI, and solutions 
             engineering roles at companies with <em>defined problems and real users</em> — places 
-            where the building is the job.
+            where I can build full-time.
         </p>
         <p class="contact-line">
             <a href="mailto:sean@seanroth.ai">sean@seanroth.ai</a>
@@ -352,9 +343,6 @@
 
     <hr class="divider">
 
-    <!-- ======================== -->
-    <!-- SYSTEMS I'VE BUILT       -->
-    <!-- ======================== -->
     <p class="section-label">Systems I've Built</p>
 
     <div class="project">
@@ -430,9 +418,6 @@
 
     <hr class="divider">
 
-    <!-- ======================== -->
-    <!-- AI TOOLS & ARCHITECTURE  -->
-    <!-- ======================== -->
     <p class="section-label">AI Tools & Architecture</p>
 
     <div class="project">
@@ -477,9 +462,6 @@
 
     <hr class="divider">
 
-    <!-- ======================== -->
-    <!-- TRAINING & COURSES       -->
-    <!-- ======================== -->
     <p class="section-label">Training & Courses</p>
 
     <div class="project">
@@ -521,9 +503,6 @@
 
     <hr class="divider">
 
-    <!-- ======================== -->
-    <!-- BACKGROUND               -->
-    <!-- ======================== -->
     <p class="section-label">Background</p>
 
     <div class="background">
@@ -553,7 +532,6 @@
     const label = document.getElementById('themeLabel');
     const root = document.documentElement;
 
-    // Check for saved preference, default to dark
     const saved = localStorage.getItem('theme') || 'dark';
     root.setAttribute('data-theme', saved);
     label.textContent = saved;
