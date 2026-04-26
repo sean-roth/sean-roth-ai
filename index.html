@@ -401,11 +401,13 @@
     <div class="project">
         <h2 class="project-name">B2B Outbound Agent</h2>
         <p class="project-description">
-            Custom outbound prospecting agent built in Claude Code with MCP tools — Apollo for 
-            prospecting, Firecrawl for company research, filesystem and SQLite for pipeline 
-            management. Custom Claude skills provide domain context and messaging guidance. Runs 
-            in any Claude Code instance (SQLite pipeline requires initial setup). Generated a 
-            qualified sales call from cold outbound on its first campaign.
+            Reference implementation for Claude Code + MCP: an outbound prospecting agent 
+            wiring Apollo (prospecting), Firecrawl (company research), and SQLite (pipeline 
+            state) into a coordinated workflow through custom Claude skills. Built to test 
+            whether a solo operator could run a credible outbound motion through Claude Code 
+            alone. The interesting technical result is how cleanly MCP lets a single skill 
+            orchestrate four heterogeneous tools without glue code. I use it now as a 
+            reference when thinking about multi-tool agent architectures.
         </p>
         <div class="project-tags">
             <span class="tag">Claude Code</span>
@@ -507,8 +509,8 @@
 
     <div class="background">
         <p>
-            8,500+ hours teaching English to professionals and students across Asia, 
-            Europe, and online. The practical foundation for everything I now know about how 
+            8,500+ live English teaching sessions — three years in Korea, then online to 
+            learners worldwide. The practical foundation for everything I now know about how 
             people learn, resist, and eventually adopt new systems — which turns out to be 
             most of what makes AI implementation succeed.
         </p>
